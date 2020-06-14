@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-color:#F8F9FA">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4" style="margin:138px auto 0">
+            <h1><strong> Please sign in</strong></h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form class="form-group" th:action="@{/login/process}" method="post">
+                <input type="text" class="form-control" th:name="username" placeholder="Login">
+                <input type="password" class="form-control" th:name="userpassword" placeholder="Password"><br>
+                <button type="submit" class="form-control btn btn-primary" >Sign in</button><br>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+            <p th:if="${error}"th:utext="${error}"></p>
+            <a href="/registration">signup</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

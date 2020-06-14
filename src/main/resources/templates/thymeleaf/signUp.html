@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body style="background-color:#F8F9FA">
+<div class="container">
+    <header class="row justify-content-center">
+        <h1><strong>Create your account</strong></h1>
+    </header>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form th:action="@{/registration}" th:object="${userForm}" method="post">
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="username">Name:</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="username" th:field="*{name}" placeholder="Your name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="inputPassword">Password:</label>
+                    <div class="col-xs-9">
+                        <input type="password" class="form-control" id="inputPassword" th:field="*{password}" placeholder="Your password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="inputCity">City:</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="inputCity" th:field="*{city}" placeholder="Your city">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="inputAge">Age:</label>
+                    <div class="col-xs-9">
+                        <input type="number" class="form-control" id="inputAge" th:field="*{age}" placeholder="Your age">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+                        <input type="submit" class="btn btn-primary" value="registration">
+                        <input type="reset" class="btn btn-primary" value="clear form">
+                    </div>
+                </div>
+            </form>
+            <p th:if="${error}" th:utext="${error}"></p>
+            <a href="/login">sigin</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
